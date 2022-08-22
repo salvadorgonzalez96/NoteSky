@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NotesSky.Splash.SplashScreen"
+             BackgroundColor="#FDFFFD">
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout BackgroundColor="#FDFFFD" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+            <Image Source="img1.png" x:Name="img1" HeightRequest="400" WidthRequest="400"/>
+            <Label x:Name="txtstatus" Text="Crea Notas Facil" FontSize="22" FontFamily="Madani-SemiBold" TextColor="Black" HorizontalOptions="Center"/>
+            <Grid x:Name="gridBtn" ColumnDefinitions="Auto,Auto,Auto" RowDefinitions="Auto,Auto" HorizontalOptions="Center">
+                <Frame x:Name="imgbtn1" Grid.Row="0" Grid.Column="0" CornerRadius="45" BackgroundColor="#6072EC" HeightRequest="1" WidthRequest="1" HasShadow="True"/>
+                <Frame x:Name="imgbtn2" Grid.Row="0" Grid.Column="1" CornerRadius="45" BackgroundColor="#B7C0F5" HeightRequest="1" WidthRequest="1" HasShadow="True"/>
+                <Frame x:Name="imgbtn3" Grid.Row="0" Grid.Column="2" CornerRadius="45" BackgroundColor="#B7C0F5" HeightRequest="1" WidthRequest="1" HasShadow="True"/>
+
+                <Frame Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" CornerRadius="45" BackgroundColor="#404C9D" xct:TouchEffect.NativeAnimation="True" HeightRequest="30" Padding="1">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Frame.GestureRecognizers>
+                    <Image Aspect="AspectFit" Source="next2.png"/>
+                </Frame>
+            </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:local="clr-namespace:NotesSky"
+             mc:Ignorable="d"
+             xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:forms="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+             x:Class="NotesSky.NotasNew"
+             Style="{StaticResource backgroundEditar}">
+    <NavigationPage.TitleView>
+        <!--<SearchBar HeightRequest="44" WidthRequest="300" />-->
+        <local:CustomEntry x:Name="txttitle" Visual="Material" Placeholder="Titulo" Style="{StaticResource Placeholderentry}" FontAttributes="Bold" FontSize="19" BackgroundColor="Transparent"/>
+    </NavigationPage.TitleView>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="attach_26px.png" Text="Adjuntar" Clicked="Adjunta_Click" Order="Primary"/>
+        <!--<ToolbarItem IconImageSource="trash.png" Text="Eliminar" Clicked="Moreclick" Order="Secondary"/>
+        <ToolbarItem IconImageSource="share_26px.png" Text="Compartir" Clicked="Shareclick" Order="Secondary"/>
+        <ToolbarItem IconImageSource="star.png" Text="Agregar como Favorito" Clicked="toFavClick" Order="Secondary"/>-->
+    </ContentPage.ToolbarItems>
+    <Grid x:Name="ContenidoEditar" RowDefinitions="Auto,*">
+        <ScrollView Grid.Row="0">
+            <StackLayout BackgroundColor="Transparent" Orientation="Vertical">
+                <ScrollView BackgroundColor="Transparent" HeightRequest="{Binding tam}">
+                    <Editor x:Name="txtcontenido" Style="{StaticResource Editors}" FontSize="20" FontFamily="Madani-Regular" VerticalOptions="FillAndExpand"
+                            AutoSize="TextChanges" BackgroundColor="Transparent"/>
+                </ScrollView>
+                <!--<Frame x:Name="frameblank" CornerRadius="15" Padding="0,0,0,0" HasShadow="True" Margin="5,5,5,60" IsVisible="true" BackgroundColor="Transparent">
+                    <BoxView BackgroundColor="Transparent" HeightRequest="450" >
+
+                    </BoxView>
+                </Frame>-->
+                <StackLayout>
+                    <Frame x:Name="frameaudio" CornerRadius="15" Padding="0,0,0,0" HasShadow="True" Margin="5,5,5,60" IsVisible="false" 
+                           BackgroundColor="CadetBlue">
+                        <StackLayout Orientation="Horizontal" Margin="10" HorizontalOptions="Center">
+                            
+                            <Frame CornerRadius="20" Padding="-1" BackgroundColor="Turquoise" WidthRequest="80" xct:TouchEffect.NativeAnimation="True">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer x:Name="graba" Tapped="graba_Tapped"/>
+                                </Frame.GestureRecognizers>
+                                <Button x:Name="btngraba" ImageSource="microphone.png" BackgroundColor="Transparent" Clicked="btngraba_Clicked"/>
+                            </Frame>
+                            <Frame x:Name="btndetener2" CornerRadius="20" Padding="-1" BackgroundColor="Turquoise" WidthRequest="80" xct:TouchEffect.NativeAnimation="True" IsEnabled="False">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer x:Name="pause" Tapped="pause_Tapped"/>
+                                </Frame.GestureRecognizers>
+                                <Button x:Name="btndetener" ImageSource="pause.png" BackgroundColor="Transparent" Clicked="btndetener_Clicked" IsEnabled="False"/>
+                            </Frame>
+                            <Frame CornerRadius="20" Padding="-1" BackgroundColor="Turquoise" WidthRequest="80" xct:TouchEffect.NativeAnimation="True">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer x:Name="playy" Tapped="playy_Tapped"/>
+                                </Frame.GestureRecognizers>
+                                <Button x:Name="btnplay" ImageSource="play.png" BackgroundColor="Transparent" Clicked="btnplay_Clicked"/>
+                            </Frame>
+                            <Label x:Name="lblmin" Text="00" TextColor="Black" FontSize="25" HorizontalTextAlignment="Center" Margin="20,0,0,0"
+                                       HorizontalOptions="Center" VerticalOptions="Center"/>
+                            <Label Text=":" TextColor="Black" FontSize="25" HorizontalTextAlignment="Center" 
+                                       HorizontalOptions="Center" VerticalOptions="Center"/>
+                            <Label x:Name="lblseg" Text="00" TextColor="Black" FontSize="25" HorizontalTextAlignment="Center" 
+                                       HorizontalOptions="Center" VerticalOptions="Center"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame x:Name="framefileaudio" CornerRadius="15" Padding="0,0,0,0" HasShadow="True" Margin="5,5,5,60" IsVisible="false">
+                        <Image x:Name="imgAudio" Source="soundW" HeightRequest="150" Aspect="Fill" >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer x:Name="imgAudiotaped"
+                                        Tapped="imgAudiotaped_Tapped"
+                                        NumberOfTapsRequired="1" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </Frame>
+                </StackLayout>
+                <Frame x:Name="framedibujo" CornerRadius="15" Padding="0,0,0,0" HasShadow="True" Margin="5,5,5,60" IsVisible="false">
+                    <forms:SignaturePadView x:Name="firmita"
+                            BackgroundColor="CadetBlue"
+                            StrokeWidth="1" 
+                            HeightRequest="320" PromptText=" "
+                                    CaptionText=" "/>
+                    </Frame>
+                <Frame x:Name="framedibujoPng" CornerRadius="15" Padding="0,0,0,0" HasShadow="True" Margin="5,5,5,60" IsVisible="false">
+                    <Image x:Name="imgDibujo" Source="draw" HeightRequest="250" Aspect="Fill" >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="imgfirma"
+                                        Tapped="imgfirma_Tapped"
+                                        NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Frame>
+                <Frame x:Name="frameimagen" CornerRadius="15" Padding="0,0,0,0" HasShadow="True" Margin="5,5,5,60" IsVisible="false">
+                    <Image x:Name="imsnota" Source="imageNotas" HeightRequest="250" Aspect="Fill" >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="imgtapped"
+                                        Tapped="imgtapped_Tapped"
+                                        NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Frame>
+                <Frame x:Name="framePdf" CornerRadius="15" Padding="0,0,0,0" HasShadow="True" Margin="5,5,5,5" IsVisible="false">
+                    <BoxView BackgroundColor="CadetBlue" HeightRequest="150" >
+
+                    </BoxView>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+        <Frame Grid.Row="0" HorizontalOptions="FillAndExpand" HeightRequest="50" VerticalOptions="End" Padding="0"
+                       Style="{StaticResource ContainerBackgroundColorFrame}" HasShadow="True" IsVisible="true" >
+            <StackLayout Orientation="Horizontal" HeightRequest="50" Margin="5" Padding="0" HorizontalOptions="Center">
+                <Frame CornerRadius="60" WidthRequest="40" HeightRequest="50" Margin="10,0,0,0" BorderColor="#7F808080" Padding="0" xct:TouchEffect.NativeAnimation="True">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="AbrirDibujo" Tapped="AbrirDibujo_Tapped" NumberOfTapsRequired="1"/>
+                    </Frame.GestureRecognizers>
+                    <Image Source="paint_black.png" Aspect="AspectFit" HeightRequest="20" WidthRequest="20" Margin="5"/>
+                </Frame>
+                <Frame CornerRadius="60" WidthRequest="40" HeightRequest="50" Margin="10,0,0,0" BorderColor="#7F808080" Padding="0" xct:TouchEffect.NativeAnimation="True">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+                    </Frame.GestureRecognizers>
+                    <Image Source="font_black.png" Aspect="AspectFit" HeightRequest="20" WidthRequest="20" Margin="5"/>
+                </Frame>
+                <Frame CornerRadius="60" WidthRequest="40" HeightRequest="50" Margin="10,0,0,0" BorderColor="#7F808080" Padding="0" xct:TouchEffect.NativeAnimation="True">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+                    </Frame.GestureRecognizers>
+                    <Image Source="ColorWheel.png" Aspect="AspectFit" HeightRequest="20" WidthRequest="20" Margin="5"/>
+                </Frame>
+                <Frame CornerRadius="60" WidthRequest="40" HeightRequest="50" Margin="10,0,0,0" BorderColor="#7F808080" Padding="0" xct:TouchEffect.NativeAnimation="True">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+                    </Frame.GestureRecognizers>
+                    <Image Source="fontsize_black.png" Aspect="AspectFit" HeightRequest="20" WidthRequest="20" Margin="5"/>
+                </Frame>
+                <Frame CornerRadius="60" WidthRequest="40" HeightRequest="50" Margin="10,0,0,0" BorderColor="#7F808080" Padding="0">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="savveNote" Tapped="savveNote_Tapped" NumberOfTapsRequired="1"/>
+                    </Frame.GestureRecognizers>
+                    <Image Source="save.png" Aspect="AspectFit" HeightRequest="20" WidthRequest="20" Margin="5"/>
+                </Frame>
+                <!--<Frame CornerRadius="60" WidthRequest="40" HeightRequest="50" Margin="10,0,0,0" BorderColor="#7F808080" Padding="0">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+                    </Frame.GestureRecognizers>
+                </Frame>-->
+            </StackLayout>
+        </Frame>
+    </Grid>
+</ContentPage>

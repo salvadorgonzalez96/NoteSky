@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="NotesSky.Views.Page1">
+    <ContentPage.Content>
+        <StackLayout >
+            <!--<Label Text="Basic Touch Effects"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand"/>-->
+            <Entry x:Name="txtEncriptar" Placeholder="Ingrese Texto a encriptar/Desencriptar!" />
+            <Editor x:Name="txtresult" AutoSize="TextChanges"/>
+            <Button x:Name="btnefect" Text="EFECTUAR CAMBIOS" Clicked="Button_Clicked"/>
+            <Button x:Name="btndes" Text="REVERTIR CAMBIOS" Clicked="btndes_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

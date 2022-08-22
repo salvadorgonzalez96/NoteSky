@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "929798534907",
+    "project_id": "notesky",
+    "storage_bucket": "notesky.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:929798534907:android:76031f647933abc89d625e",
+        "android_client_info": {
+          "package_name": "com.notasApp.notessky"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "929798534907-8k32ka8g4k1ifnjll2m4nn94t3akeoqd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJO4KgqoctJoNFHDLpQ_AAbIAXJqW_ze0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "929798534907-8k32ka8g4k1ifnjll2m4nn94t3akeoqd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

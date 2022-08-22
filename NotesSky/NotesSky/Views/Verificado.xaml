@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="NotesSky.Views.Verificado"
+             Title="Cuenta verificada"
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="0,220,0,0">
+                <Image Source="sucess.png" Aspect="AspectFit" HeightRequest="200" HorizontalOptions="Center"/>
+                <Label Text="Su cuenta se Verifico Correctamente!" TextColor="black" FontSize="Large" FontFamily="Madani-SemiBold"
+                       BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" Margin="20,0,10,0"></Label>
+                <Label Text="Sea bienvenido a la aplicacion disfrute de una buena experiencia" TextColor="Black" FontSize="Large" 
+                       FontFamily="AcherusGrotesque-Regular" 
+                       BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" Margin="20" VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"></Label>
+                <Frame Margin="60,0,60,0" CornerRadius="15" Padding="5" BackgroundColor="DarkGreen" HasShadow="True" 
+                       xct:TouchEffect.NativeAnimation="True">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Frame.GestureRecognizers>
+                    <Button x:Name="btnregreso" Text="Regresar al login" TextColor="White" BackgroundColor="Transparent"
+                            FontFamily="Madani-SemiBold" FontSize="18" HorizontalOptions="Center"></Button>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

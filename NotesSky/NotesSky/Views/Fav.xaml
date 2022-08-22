@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+              mc:Ignorable="d"
+             xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" 
+             x:Class="NotesSky.Views.Fav">
+    <ContentPage.Content>
+        <Grid RowDefinitions="auto,auto,auto,*" Style="{StaticResource ContainerBackgroundColor3}">
+            <Grid Style="{StaticResource ContainerBackgroundColor3}" Grid.Row="0" Padding="5">
+                <!--aki solo va el boton de menu y la foto de usuario para editarlo-->
+                <Frame BackgroundColor="Transparent" CornerRadius="45" xct:TouchEffect.NativeAnimation="True" HorizontalOptions="Start" Padding="10">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="backbutton" Tapped="backbutton_Tapped"/>
+                    </Frame.GestureRecognizers>
+                    <Image Aspect="AspectFit" HeightRequest="20" Style="{StaticResource ImagenSourrce}"/>
+                </Frame>
+                <Frame BackgroundColor="Transparent" CornerRadius="45" xct:TouchEffect.NativeAnimation="True" 
+                                   HorizontalOptions="End" Padding="10" Margin="0,0,40,0">
+                </Frame>
+                <!--<Frame BackgroundColor="Transparent" CornerRadius="45" xct:TouchEffect.NativeAnimation="True" 
+                                   HorizontalOptions="End" Padding="10">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Frame.GestureRecognizers>
+                    <Image Aspect="AspectFit" HeightRequest="30" Source="more.png"/>
+                </Frame>-->
+                <!--================================================================-->
+            </Grid>
+            <StackLayout Style="{StaticResource ContainerBackgroundColor3}" Grid.Row="1" Padding="0,0,0,0" Orientation="Horizontal"  >
+                <!--este solo es el buscador de notas-->
+                <Frame BackgroundColor="LightGray" CornerRadius="15" Padding="0,0,0,0" 
+                                   Margin="10,0" HasShadow="True" InputTransparent="False" HorizontalOptions="FillAndExpand">
+                    <SearchBar Placeholder="Buscar" HorizontalOptions="FillAndExpand" x:Name="BuscadordeNotas" PlaceholderColor="Gray"
+                                           HeightRequest="50" TextChanged="BuscadordeNotas_TextChanged"></SearchBar>
+                </Frame>
+                <!--================================================================-->
+            </StackLayout>
+
+            <StackLayout Grid.Row="2" Padding="0,0,0,0" Style="{StaticResource ContainerBackgroundColor3}">
+                <!--aki va el contenido de la lista de notas-->
+                <!--<BoxView BackgroundColor="AntiqueWhite" 
+                                 HorizontalOptions="Fill" 
+                                 VerticalOptions="FillAndExpand">
+                            </BoxView>-->
+                <RefreshView Refreshing="RefreshView_Refreshing" x:Name="myrefresh"
+                            Command="{Binding RefreshCommand}"
+                            IsRefreshing="{Binding IsRefreshing}"
+                            >
+                <CollectionView x:Name="ListaNotas" SelectionMode="Single" Margin="10"  ItemsSource="{Binding noti}" >
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="2" VerticalItemSpacing="10" />
+                    </CollectionView.ItemsLayout>
+                        <CollectionView.EmptyView>
+                            <StackLayout
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand">
+                                <Label
+                                FontAttributes="Bold"
+                                FontSize="18"
+                                Style="{StaticResource TextColor}"
+                                HorizontalTextAlignment="Center"
+                                VerticalTextAlignment="Center"
+                                Text="No hay notas Aqui!" />
+                            </StackLayout>
+                        </CollectionView.EmptyView>
+                        <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="10" Margin="12" ColumnDefinitions="*,Auto">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup Name="CommonStates">
+                                        <VisualState Name="Selected">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="Transparent" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Frame x:Name="frameNotita" Grid.Column="0" Grid.Row="0" Padding="0,0,0,0" BackgroundColor="#3F3F3F" CornerRadius="20" HasShadow="True" 
+                                                   xct:ShadowEffect.Color="#2A2A2A" xct:ShadowEffect.OffsetY="5" xct:ShadowEffect.Radius="10">
+                                    <StackLayout xct:TouchEffect.NativeAnimation="True">
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer x:Name="clickanota" Tapped="clickanota_Tapped"/>
+                                        </StackLayout.GestureRecognizers>
+                                            <Grid ColumnDefinitions="*,*,Auto" RowDefinitions="*,Auto,*,Auto">
+                                                <Label x:Name="notaId" Text="{Binding id}" IsVisible="false"/>
+
+                                                <Label Margin="20" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" HorizontalTextAlignment="Center" Text="{Binding titulo}" 
+                                                               FontSize="15" FontFamily="Madani-SemiBold" TextColor="WhiteSmoke" HeightRequest="30" LineBreakMode="WordWrap"/>
+                                                <Label HorizontalTextAlignment="Center" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Text="{Binding fecha}" TextColor="WhiteSmoke"/>
+                                                <Label Margin="10,0,10,5" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Text="{Binding contenido}" HeightRequest="60" TextColor="LightGray"/>
+                                                <!--imagenes ilustrtivas-->
+                                                <Image Margin="20,0,0,0"  HorizontalOptions="Start" 
+                                                               Source="image.png" Grid.Column="0" Grid.Row="3" WidthRequest="20" 
+                                                               HeightRequest="20" Aspect="AspectFit" IsVisible="{Binding ContainFoto}"/>
+                                                <Image Margin="0,0,0,0"  HorizontalOptions="Center" 
+                                                               Source="favorite.png" Grid.Column="1" Grid.Row="3" WidthRequest="20" 
+                                                               HeightRequest="20" Aspect="AspectFit" IsVisible="{Binding ContainFavorite}"/>
+                                                <Image Margin="0,0,20,0"  Grid.Column="2" Grid.Row="3"  HorizontalOptions="End" 
+                                                               Source="microphone_white.png"  WidthRequest="20" 
+                                                               HeightRequest="20" Aspect="AspectFit" IsVisible="{Binding ContainAudio}"/>
+                                            </Grid>
+                                        </StackLayout>
+                                </Frame>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </RefreshView>
+                <!--================================================================-->
+            </StackLayout>
+            
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

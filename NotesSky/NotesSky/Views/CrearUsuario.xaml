@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+             xmlns:local="clr-namespace:NotesSky;assembly=NotesSky"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:behavior="clr-namespace:NotesSky.Views"
+             x:Class="NotesSky.Views.CrearUsuario"
+             Title="Crear Usuario"
+             BackgroundColor="WhiteSmoke">
+    <StackLayout >
+        <StackLayout Padding="10,10,10,0">
+            <Frame BackgroundColor="Transparent" CornerRadius="45" xct:TouchEffect.NativeAnimation="True" HorizontalOptions="Start" Padding="10">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </Frame.GestureRecognizers>
+                <Image Aspect="AspectFit" HeightRequest="20" Source="back_black.png"/>
+                <!--<Button x:Name="btncancelar" BackgroundColor="white" TextColor="Black" HorizontalOptions="Start" Clicked="btncancelar_Clicked" Margin="5,0,0,0"></Button>-->
+            </Frame>
+        </StackLayout>
+        <ScrollView>
+            <StackLayout Padding="10">
+                <Image Source="register.png" Aspect="AspectFit" HeightRequest="200" HorizontalOptions="Center"/>
+                <Label Text="Registro" TextColor="Black" BackgroundColor="Transparent" HorizontalOptions="Start" 
+                   Margin="10" FontSize="31" FontFamily="Madani-SemiBold" FontAttributes="Bold"></Label>
+                <Label Text="Selecciona la Imagen" HorizontalOptions="Start"  TextColor="Black" FontFamily="Madani-SemiBold" FontSize="18" Margin="10"/>
+                <!--IMAGEN DE USUARIO-->
+                <Grid ColumnDefinitions="Auto,Auto" HorizontalOptions="StartAndExpand" >
+                    <Frame Grid.Column="0" CornerRadius="10" BackgroundColor="Transparent" Padding="1" HeightRequest="40"
+                       HorizontalOptions="StartAndExpand" WidthRequest="310" HasShadow="True">
+                        <Entry Placeholder="Ubicación de Archivo" IsReadOnly="True"  VerticalTextAlignment="Center" 
+                           PlaceholderColor="Gray" TextColor="Gray" HorizontalTextAlignment="Center" x:Name="uri_path"/>
+                    </Frame>
+                    <Frame Grid.Column="1" BackgroundColor="#EBCD87" BorderColor="#54CA3F" Padding="0" HasShadow="True" CornerRadius="45">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="btnSavefoto" Tapped="btnSavefoto_Tapped"/>
+                        </Frame.GestureRecognizers>
+                        <Image x:Name="UbiImagen" HeightRequest="20" WidthRequest="45" Source="user.png" BackgroundColor="#FBEAC2" Aspect="Fill" />
+                    </Frame>
+                </Grid>
+                <!--ingreso de usuario-->
+                <!--<StackLayout Orientation="Horizontal" Margin="10">
+                <Image Source="user_head.png" Aspect="AspectFit" WidthRequest="30" HorizontalOptions="Start"/>
+                <Entry x:Name="txtusuario" TextColor="Black" Placeholder="Ingrese usuario" Grid.Column="1" HorizontalOptions="FillAndExpand"
+                       PlaceholderColor="Gray" Keyboard="Text" FontSize="17" Margin="9,2,20,0" ></Entry>
+            </StackLayout>-->
+
+                <!--ingreso de nombre-->
+                <StackLayout Orientation="Horizontal" Margin="10">
+                    <Image Source="identification.png" Aspect="AspectFit" WidthRequest="30" HorizontalOptions="Start"/>
+                    <Entry x:Name="txtnombre" TextColor="Black" Placeholder="Ingrese nombre" Grid.Column="1" HorizontalOptions="FillAndExpand"
+                           Text=""
+                       PlaceholderColor="Gray" Keyboard="Text" FontSize="17" Margin="9,2,20,0" MaxLength="45"></Entry>
+                </StackLayout>
+                <!--ingreo de apellido-->
+                <StackLayout Orientation="Horizontal" Margin="10">
+                    <Image Source="identification.png" Aspect="AspectFit" WidthRequest="30" HorizontalOptions="Start"/>
+                    <Entry x:Name="txtapellido" TextColor="Black" Placeholder="Ingrese apellido" Grid.Column="1" HorizontalOptions="FillAndExpand"
+                           Text=""
+                       PlaceholderColor="Gray" Keyboard="Text" FontSize="17" Margin="9,2,20,0" MaxLength="45"></Entry>
+                </StackLayout>
+                <!--ingrese genero-->
+                <StackLayout Orientation="Horizontal" Margin="10">
+                    <Image Source="genero.png" Aspect="AspectFit" WidthRequest="30" HorizontalOptions="Start"/>
+                    <Picker x:Name="btngenero" Title="Seleccione su Género" Grid.Column="1" HorizontalOptions="FillAndExpand" Margin="10" 
+                        TextColor="Gray" TitleColor="Gray">
+                    </Picker>
+                </StackLayout>
+                <!--ingrese telefono-->
+                <StackLayout Orientation="Horizontal" Margin="10">
+                    <Image Source="iphone.png" Aspect="AspectFit" WidthRequest="30" HorizontalOptions="Start"/>
+                    <Entry x:Name="txttelefono" TextColor="Black" Placeholder="Ingrese Teléfono" Grid.Column="1" HorizontalOptions="FillAndExpand"
+                       PlaceholderColor="Gray" Keyboard="Numeric" FontSize="17" Margin="9,2,20,0" >
+                        <Entry.Behaviors>
+                            <behavior:MaskedBehavior Mask="+(XXX) XXXX-XXXX" />
+                        </Entry.Behaviors>
+                    </Entry>
+                </StackLayout>
+                <!--ingrese ciudad-->
+                <StackLayout Orientation="Horizontal" Margin="10">
+                    <Image Source="america.png" Aspect="AspectFit" WidthRequest="30" HorizontalOptions="Start"/>
+                    <Entry x:Name="txtciudad" TextColor="Black" Placeholder="Ingrese ciudad" Grid.Column="1" HorizontalOptions="FillAndExpand"
+                       PlaceholderColor="Gray" Keyboard="Text" FontSize="17" Margin="9,2,20,0" MaxLength="45"></Entry>
+                </StackLayout>
+                <!--ingrese Fecha-->
+                <Label Text="Selecciona Año de Nacimiento" HorizontalOptions="Start" FontFamily="Madani-SemiBold" FontSize="18"  TextColor="Black"/>
+                <StackLayout Orientation="Horizontal" Margin="10">
+                    <Image Source="calendar.png" Aspect="AspectFit" WidthRequest="30" HorizontalOptions="Start"/>
+                    <DatePicker x:Name="datetxt" Margin="10" MinimumDate="01/01/1960" MaximumDate="01/01/2012" TextColor="Gray" Format="dd/MM/yyyy"
+                            DateSelected="OnDateSelected" Grid.Column="1" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <!--ingreso de correo-->
+                <StackLayout Orientation="Horizontal" Margin="10">
+                    <Image Source="arroba.png" Aspect="AspectFit" WidthRequest="30" HorizontalOptions="Start"/>
+                    <Entry x:Name="txtcorreo" TextColor="Black" Placeholder="Ingrese Correo Electrónico" Grid.Column="1" 
+                       HorizontalOptions="FillAndExpand" MaxLength="100"
+                       PlaceholderColor="Gray" Keyboard="Text" FontSize="17" Margin="9,2,20,0" ></Entry>
+                </StackLayout>
+                <!--ingreso de contraseña-->
+                <StackLayout Orientation="Horizontal" Margin="10">
+                    <Image Source="lock.png" Aspect="AspectFit" WidthRequest="30" HorizontalOptions="Start"/>
+                    <Entry x:Name="txtcontra" TextColor="Black" Placeholder="Ingrese Contraseña" Grid.Column="1" HorizontalOptions="FillAndExpand"
+                       PlaceholderColor="Gray" Keyboard="Text" FontSize="17" Margin="9,2,20,0" MaxLength="100"></Entry>
+                </StackLayout>
+                <!--<Frame BackgroundColor="Transparent">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="clickPoliticas" Tapped="clickPoliticas_Tapped" Command="{Binding ForgotPasswordCommand}"/>
+                    </Frame.GestureRecognizers>
+                    <Label TextType="Html" x:Name="lblCondition" Margin="10" FontSize="17">
+                    </Label>
+                </Frame>-->
+                <local:LabelControl  Margin="10" FontSize="17" x:Name="labeled"
+                    LineBreakMode="WordWrap">
+                    <local:LabelControl.FormattedText>
+                        <FormattedString>
+                            <Span 
+                                Text="Al Crear tu Usuario. estas de acuerdo con Nuestros " 
+                                TextColor="Black" 
+                                FontAttributes="Bold" FontSize="17"/>
+                            <Span 
+                                Text="Términos y Condiciones y Politicas de Privacidad." 
+                                TextColor="Blue" 
+                                FontAttributes="Italic" 
+                                FontSize="17">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="clickPoliticas_Tapped" />
+                                </Span.GestureRecognizers>
+                            </Span>
+                        </FormattedString>
+                    </local:LabelControl.FormattedText>
+                </local:LabelControl>
+                <Frame Margin="15" CornerRadius="15" Padding="5" BackgroundColor="#1C2DF2" HasShadow="True" xct:TouchEffect.NativeAnimation="True">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="btncrea" Tapped="btncrea_Tapped"/>
+                    </Frame.GestureRecognizers>
+                    <Button x:Name="btncrear" Text="Continuar" TextColor="White" BackgroundColor="Transparent"
+                        FontFamily="Madani-SemiBold" FontSize="18" HorizontalOptions="Center"></Button>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

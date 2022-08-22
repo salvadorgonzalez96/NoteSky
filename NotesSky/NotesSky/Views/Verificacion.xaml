@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="NotesSky.Views.Verificacion"
+             Title="Verificar cuenta"
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout Margin="0,200,0,0">
+            <Image Source="pin.png" Aspect="AspectFit" HeightRequest="200" HorizontalOptions="Center"/>
+            <Label Text="Ingrese el codigo de verificacion" TextColor="black" BackgroundColor="Transparent" 
+                   HorizontalOptions="Center" FontSize="19" TextDecorations="Underline" FontFamily="Madani-SemiBold"></Label>
+
+            <StackLayout Orientation="Horizontal" Margin="10" HorizontalOptions="Center">
+                <Image Source="lock.png" Aspect="AspectFit" WidthRequest="30" HorizontalOptions="Start"/>
+                <Entry x:Name="txtcodigo" TextColor="black" BackgroundColor="Transparent" FontSize="Medium" 
+                       Placeholder="Ingrese codigo" PlaceholderColor="Gray" Keyboard="Numeric"
+                       MaxLength="6" WidthRequest="200" HorizontalTextAlignment="Center"></Entry>
+            </StackLayout>
+            
+            <Frame Margin="60,0,60,0" CornerRadius="15" Padding="5" BackgroundColor="DarkGreen" HasShadow="True" 
+                   xct:TouchEffect.NativeAnimation="True">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </Frame.GestureRecognizers>
+                <Button x:Name="btnverificacion" Text="Verificar" TextColor="White" BackgroundColor="Transparent"
+                        FontFamily="Madani-SemiBold" FontSize="18" HorizontalOptions="Center"></Button>
+            </Frame>
+            
+            <Frame Margin="60,0,60,0" CornerRadius="15" Padding="5" BackgroundColor="DarkBlue" HasShadow="True" x:Name="framebutton"
+                   xct:TouchEffect.NativeAnimation="True">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+                </Frame.GestureRecognizers>
+                <Button x:Name="btnotroCodigo" Text="Volver a Enviar" TextColor="White" BackgroundColor="Transparent"
+                        FontFamily="Madani-SemiBold" FontSize="18" HorizontalOptions="Center"></Button>
+            </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

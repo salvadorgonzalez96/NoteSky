@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundClicked="PopupPage_BackgroundClicked"
+             CloseWhenBackgroundIsClicked="False"
+             x:Class="NotesSky.Views.PopupCamera">
+    <StackLayout WidthRequest="200" HeightRequest="200" 
+                 HorizontalOptions="Center" VerticalOptions="Center" >
+        <Frame CornerRadius="20" HasShadow="True">
+            <StackLayout>
+                <!--<Button x:Name="Closebtn" Text="Close" Clicked="Closebtn_Clicked"></Button>-->
+                <Label Text="Selecciona una foto" HorizontalOptions="Center" FontSize="18" TextColor="Black"/>
+                <Button x:Name="btngalery" Text="Galeria" Clicked="btngalery_Clicked"></Button>
+                <Button x:Name="btnCamera" Text="Cámara" Clicked="btnCamera_Clicked"></Button>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</pages:PopupPage>

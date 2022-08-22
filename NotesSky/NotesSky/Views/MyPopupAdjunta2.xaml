@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 BackgroundClicked="PopupPage_BackgroundClicked"
+                  CloseWhenBackgroundIsClicked="False"
+             x:Class="NotesSky.Views.MyPopupAdjunta2">
+    <StackLayout WidthRequest="300" HeightRequest="400" 
+                 HorizontalOptions="End" VerticalOptions="Start">
+        <Frame CornerRadius="20" HasShadow="True">
+            <StackLayout>
+                <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,Auto">
+                    <Frame Padding="0,0,0,0" CornerRadius="10" BorderColor="Gray" Grid.Row="0" Grid.Column="0" HeightRequest="40" WidthRequest="150" Grid.ColumnSpan="3">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="findImage" Tapped="findImage_Tapped"/>
+                        </Frame.GestureRecognizers>
+                        <Button TextColor="Black" BackgroundColor="Transparent" x:Name="btnpicture" Text="Imagen" ContentLayout="Left,5" Image="picture" Clicked="btnpicture_Clicked" HorizontalOptions="Center">
+                            
+                        </Button>
+                    </Frame>
+                    <Frame Padding="0,0,0,0" CornerRadius="10" BorderColor="Gray" Grid.Row="1" Grid.Column="0" HeightRequest="40" WidthRequest="150" Grid.ColumnSpan="3">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="findCamer" Tapped="findCamer_Tapped"/>
+                        </Frame.GestureRecognizers>
+                        <Button TextColor="Black" BackgroundColor="Transparent" x:Name="btnpic" Text="Cámara" ContentLayout="Left,5" Image="camera" Clicked="btnpic_Clicked" HorizontalOptions="Center">
+                            <Button.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="findCamer_Tapped"/>
+                            </Button.GestureRecognizers>
+                        </Button>
+                    </Frame>
+                    <!--<Frame Padding="0,0,0,0" CornerRadius="10" BorderColor="Gray" Grid.Row="0" Grid.Column="1" HeightRequest="40" WidthRequest="100">
+                        <Button TextColor="Black" BackgroundColor="Transparent" x:Name="btnpdf" Text="PDF" ContentLayout="Left,5" Image="pdf"  HorizontalOptions="Start" />
+                    </Frame>-->
+                </Grid>
+                <!--<Button x:Name="Closebtn" Text="Close" Clicked="Closebtn_Clicked"></Button>-->
+                <!--<Picker x:Name="orderBy" Title="Ordenar Asc Por" SelectedIndexChanged="orderBy_SelectedIndexChanged" >
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Fecha</x:String>
+                            <x:String>Titulo</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>-->
+                <BoxView BackgroundColor="Black" HorizontalOptions="FillAndExpand" HeightRequest="1"/>
+                <Button TextColor="Black" BackgroundColor="Transparent" x:Name="btnVoz" Text="Grabación de Voz" ContentLayout="Left,5" Image="microphone_black" Clicked="btnVoz_Clicked" HorizontalOptions="Start" />
+                <!--<Button TextColor="Black" BackgroundColor="Transparent" x:Name="btnAudio" Text="Archivo de Audio" ContentLayout="Left,5" Image="musical2" Clicked="btnAudio_Clicked" HorizontalOptions="Start" />-->
+                <Button TextColor="Black" BackgroundColor="Transparent" x:Name="btnDibujo" Text="Dibujo" ContentLayout="Left,5" Image="paint" Clicked="btnDibujo_Clicked" HorizontalOptions="Start" />
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</pages:PopupPage>

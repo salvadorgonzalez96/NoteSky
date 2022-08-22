@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NotesSky.MainPage">
+
+    <StackLayout>
+        <Button Margin="10" Clicked="btnvista_Clicked" x:Name="btnvista"  Text="Recordatorio VistaPrevia"/>
+        <Button Margin="10" Clicked="btnedit_Clicked" x:Name="btnedit" Text="Recordatorio Editar"/>
+        <Button Margin="10" Clicked="btnmenu_Clicked" x:Name="btnmenu" Text="IR A MENU"/>
+        <Button Margin="10" Clicked="btnmenu2_Clicked" x:Name="btnmenu2" Text="MENU2"/>
+        <Button Margin="10" Clicked="btnpage1_Clicked" x:Name="btnpage1" Text="PAGE1"/>
+        <Button Margin="10" Clicked="btnpage3_Clicked" x:Name="btnpage3" Text="SplashScreen"/>
+        <Button Margin="10" Clicked="btnpage4_Clicked" x:Name="btnpage4" Text="Delbert test"/>
+    </StackLayout>
+
+</ContentPage>

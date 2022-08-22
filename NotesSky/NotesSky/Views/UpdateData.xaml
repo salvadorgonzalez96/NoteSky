@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behavior="clr-namespace:NotesSky.Views"
+             x:Class="NotesSky.Views.UpdateData"
+             Title="Actualizacion de Datos"
+             >
+    <StackLayout Style="{StaticResource ContainerBackgroundColor}">
+
+        <Label Text="ACTUALIZACION DE DATOS" Style="{StaticResource TextColor}" FontSize="21" HorizontalOptions="Center" Margin="10" FontFamily="Madani-SemiBold"/>
+        <Entry x:Name="txtid" Text="{Binding user.id}" IsVisible="false"/>
+        <Frame x:Name="imagebtn" CornerRadius="165" HasShadow="True" Padding="0" HeightRequest="250" WidthRequest="250"
+               HorizontalOptions="Center" VerticalOptions="Center"
+               xct:TouchEffect.NativeAnimation="True">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer x:Name="TapImageUpdate" Tapped="TapImageUpdate_Tapped"/>
+            </Frame.GestureRecognizers>
+            <Image x:Name="imgfoto" Aspect="AspectFill" Source="{Binding user.imagen}"/>
+        </Frame>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="20,0,20,0">
+                    <Image Style="{StaticResource nomSource}" Aspect="AspectFit" WidthRequest="30" HorizontalOptions="Start"/>
+                    <Entry x:Name="txtnombre" Style="{StaticResource TextColor}" Placeholder="Nombre" Grid.Column="1" HorizontalOptions="FillAndExpand"
+                           MaxLength="45"
+                       PlaceholderColor="Gray" Keyboard="Text" FontSize="17" Margin="9,2,20,0" Text="{Binding user.nombre}"></Entry>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="20,0,20,0">
+                    <Image Style="{StaticResource nomSource}" Aspect="AspectFit" WidthRequest="30" HorizontalOptions="Start"/>
+                    <Entry x:Name="txtapellido" Style="{StaticResource TextColor}" Placeholder="Apellido" Grid.Column="1" HorizontalOptions="FillAndExpand"
+                           MaxLength="45"
+                       PlaceholderColor="Gray" Keyboard="Text" FontSize="17" Margin="9,2,20,0" Text="{Binding user.apellido}"></Entry>
+                </StackLayout>
+                <!--<StackLayout Orientation="Horizontal" Margin="20,0,20,0">
+                    <Image Source="user_head.png" Aspect="AspectFit" WidthRequest="30" HorizontalOptions="Start"/>
+                    <Entry   x:Name="txtusuario" TextColor="Black" Placeholder="Usuario" Grid.Column="1" HorizontalOptions="FillAndExpand"
+                           MaxLength="45"
+                       PlaceholderColor="Gray" Keyboard="Text" FontSize="17" Margin="9,2,20,0" Text="{Binding user.usuario}"></Entry>
+                </StackLayout>-->
+                <StackLayout Orientation="Horizontal" Margin="20,0,20,0">
+                    <Image Style="{StaticResource genSource}" Aspect="AspectFit" WidthRequest="30" HorizontalOptions="Start"/>
+                    <Picker x:Name="btngenero" Title="Género" Grid.Column="1" HorizontalOptions="FillAndExpand" Margin="9,2,20,0"
+                            TextColor="Gray" Style="{StaticResource TextColor}" SelectedItem="{Binding user.genero}">
+                    </Picker>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="20,0,20,0">
+                    <Image  Style="{StaticResource mainSource}" Aspect="AspectFit" WidthRequest="30" HorizontalOptions="Start"/>
+                    <Entry  x:Name="txtcorreo" Style="{StaticResource TextColor}" Placeholder="Correo Electrónico" Grid.Column="1" 
+                       HorizontalOptions="FillAndExpand" MaxLength="100" IsReadOnly="True"
+                       PlaceholderColor="Gray" Keyboard="Text" FontSize="17" Margin="9,2,20,0" Text="{Binding user.correo}"></Entry>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="20,0,20,0">
+                    <Image Style="{StaticResource passSource}" Aspect="AspectFit" WidthRequest="30" HorizontalOptions="Start"/>
+                    <Entry   x:Name="txtcontra" Style="{StaticResource TextColor}" Placeholder="Contraseña" Grid.Column="1" HorizontalOptions="FillAndExpand"
+                           MaxLength="100"
+                       PlaceholderColor="Gray" Keyboard="Text" FontSize="17" Margin="9,2,20,0" Text=""></Entry>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="20,0,20,0">
+                    <Image Style="{StaticResource ciudadSource}" Aspect="AspectFit" WidthRequest="30" HorizontalOptions="Start"/>
+                    <Entry   x:Name="txtciudad" Style="{StaticResource TextColor}" Placeholder="Ciudad" Grid.Column="1" HorizontalOptions="FillAndExpand"
+                           MaxLength="45"
+                       PlaceholderColor="Gray" Keyboard="Text" FontSize="17" Margin="9,2,20,0" Text="{Binding user.ciudad}"></Entry>
+                </StackLayout>
+                <!--ENTRY NUM TELEFONO-->
+                <StackLayout Orientation="Horizontal" Margin="20,0,20,0">
+                    <Image Style="{StaticResource teldSource}" Aspect="AspectFit" WidthRequest="30" HorizontalOptions="Start"/>
+                    <Entry   x:Name="txttelefono" Style="{StaticResource TextColor}" Placeholder="Telefono" Grid.Column="1" HorizontalOptions="FillAndExpand"
+                           Keyboard="Numeric"
+                       PlaceholderColor="Gray" FontSize="17" Margin="9,2,20,0" Text="{Binding user.telefono}">
+                        <Entry.Behaviors>
+                            <behavior:MaskedBehavior Mask="+(XXX) XXXX-XXXX" />
+                        </Entry.Behaviors>
+                    </Entry>
+                </StackLayout>
+                <Frame Margin="15" CornerRadius="15" Padding="5" BackgroundColor="#1C2DF2" HasShadow="True" xct:TouchEffect.NativeAnimation="True">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="btnactualiza" Tapped="btnactualiza_Tapped"/>
+                    </Frame.GestureRecognizers>
+                    <Button x:Name="btnactualizar" Text="Actualizar" TextColor="White" BackgroundColor="Transparent"
+                        FontFamily="Madani-SemiBold" FontSize="18" HorizontalOptions="Center"></Button>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NotesSky.Views.PageInformation">
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout Style="{StaticResource ContainerBackgroundColor}">
+
+            <Frame CornerRadius="20" Margin="10" Padding="1" Style="{StaticResource ContainerBackgroundColor2}" >
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10">
+                    <Image Source="about.png" HeightRequest="50" Aspect="AspectFit"/>
+                    <Frame BackgroundColor="Transparent" Padding="10" CornerRadius="0">
+                        <Label Style="{StaticResource TextColor}" Text="Acerca de la Aplicación"  HorizontalTextAlignment="Center" FontSize="22"/>
+                    </Frame>
+                </StackLayout>
+            </Frame>
+
+            <FlexLayout Direction="Column">
+                <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="#DAD8D4" Margin="0,0,0,10"/>
+                <Frame CornerRadius="20" Margin="10" Padding="1" Style="{StaticResource ContainerBackgroundColor2}" >
+                    <Label Style="{StaticResource TextColor}" Text="Aplicación de Gestión de notas y recordatorios NoteSky" 
+                        FontSize="17" Margin="10" HorizontalOptions="Center" HorizontalTextAlignment="Center"></Label>
+                </Frame>
+                
+                <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="#DAD8D4" Margin="0,0,0,10"/>
+                <Frame CornerRadius="20" Margin="10" Padding="1" Style="{StaticResource ContainerBackgroundColor2}" >
+                <Label  Style="{StaticResource TextColor}"
+                        Text="Creado por el Grupo#5 de la Clase de Móvil II Universidad Tecnologica de Honduras (UTH)" 
+                        FontSize="17" Margin="10" HorizontalOptions="Center" HorizontalTextAlignment="Center"></Label>
+                
+                </Frame>
+                
+                <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="#DAD8D4" Margin="0,0,0,10"/>
+                <Label Style="{StaticResource TextColor}" Margin="15,0,15,0" HorizontalOptions="Center" 
+                       HorizontalTextAlignment="Center" Text="Versión: " FontSize="17"></Label>
+                <Frame CornerRadius="20" Margin="10" Padding="1" Style="{StaticResource ContainerBackgroundColor2}" >
+                <Label Style="{StaticResource TextColor}"   Text="1.1" FontSize="25"
+                       Margin="10" HorizontalOptions="Center" HorizontalTextAlignment="Center"></Label>
+                </Frame>
+                
+                <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="#DAD8D4" Margin="0,0,0,10"/>
+
+                <Label Style="{StaticResource TextColor}"  Text="Integrantes: " 
+                       Margin="10" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="17"></Label>
+                <Frame CornerRadius="20" Margin="10" Padding="1" Style="{StaticResource ContainerBackgroundColor2}" >
+                    <StackLayout>
+                        <Label Style="{StaticResource TextColor}" Margin="10"  Text="Josseth Bautista -> 201810020200 " HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="17"></Label>
+                        <Label Style="{StaticResource TextColor}" Margin="10"  Text="Liliana Hernandez -> 201810010880 " HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="17"></Label>
+                        <Label Style="{StaticResource TextColor}" Margin="10"  Text="Delbert Lira -> 201810020087 " HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="17"></Label>
+                        <Label Style="{StaticResource TextColor}" Margin="10"  Text="Lissien Miranda -> 201820020078 " HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="17"></Label>
+                        <Label Style="{StaticResource TextColor}" Margin="10"  Text="Katherine Andino -> 201810020267 " HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="17"></Label>
+                        <Label Style="{StaticResource TextColor}" Margin="10"  Text="Salvador Gonzales -> 201830020090 " HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="17"></Label>
+                    </StackLayout>
+                </Frame>
+                
+                <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="#DAD8D4" Margin="0,0,0,10"/>
+                <Frame Style="{StaticResource ContainerBackgroundColor}" 
+                       Margin="5" CornerRadius="15" Padding="5" BackgroundColor="Green" HasShadow="True" xct:TouchEffect.NativeAnimation="True">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+                    </Frame.GestureRecognizers>
+                    <StackLayout Orientation="Horizontal" Margin="20,0,20,0">
+                        <Image Source="back.png" HeightRequest="30" Aspect="AspectFit" HorizontalOptions="Start"/>
+                        <Button x:Name="CloseS" Text="Atras" TextColor="WhiteSmoke" Style="{StaticResource TextColor2}" BackgroundColor="Transparent"
+                        FontFamily="Madani-SemiBold" FontSize="21" HorizontalOptions="Center"></Button>
+                    </StackLayout>
+                </Frame>
+            </FlexLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

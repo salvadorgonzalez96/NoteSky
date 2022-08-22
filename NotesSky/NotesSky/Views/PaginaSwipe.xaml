@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             mc:Ignorable="d"
+             xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" 
+             x:Class="NotesSky.Views.PaginaSwipe">
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <BoxView BackgroundColor="#1f1f1f"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <BoxView.GestureRecognizers>
+                <TapGestureRecognizer Tapped="CloseSwipe"/>
+            </BoxView.GestureRecognizers>
+        </BoxView>
+        <!--<BoxView Opacity="0.9" BackgroundColor="#A1A1A1"/>-->
+        <SwipeView x:Name="Swipemenu" BackgroundColor="Transparent"
+                   SwipeStarted="Swipemenu_SwipeStarted_1" SwipeEnded="Swipemenu_SwipeEnded_1"
+                   SwipeChanging="Swipemenu_SwipeChanging" CloseRequested="Swipemenu_CloseRequested">
+            <SwipeView.LeftItems>
+                <SwipeItems SwipeBehaviorOnInvoked="Close">
+                    <SwipeItemView>
+                        <Grid>
+                            <StackLayout Spacing="20" Padding="35" WidthRequest="200" BindableLayout.ItemsSource="{Binding MyMenu}"
+                                         VerticalOptions="CenterAndExpand" x:Name="MenuStacklayout">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="CloseSwipe"/>
+                                </StackLayout.GestureRecognizers>
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout x:Name="SubMenuStacklayout" Orientation="Horizontal" xct:TouchEffect.NativeAnimation="True" 
+                                                     >
+                                            <!--aki va el click a el menu--> 
+                                            <StackLayout.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="MenuClicked"/>
+                                            </StackLayout.GestureRecognizers>
+                                            <!--este es el menu que esta oculto asta que se hace swipe se muestra-->
+                                            <pv:PancakeView BackgroundColor="#557ED2" HeightRequest="30" 
+                                                            WidthRequest="35" CornerRadius="15" VerticalOptions="Center" 
+                                                            HorizontalOptions="Start">
+                                                <Image Source="{Binding Icon}" HeightRequest="20" WidthRequest="20" VerticalOptions="Center" 
+                                                       HorizontalOptions="Center"/>
+                                            </pv:PancakeView>
+                                            <Label Text="{Binding name}" TextColor="White" FontSize="20" FontAttributes="Bold"
+                                                   HorizontalOptions="Start" VerticalOptions="Center">
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="MenuClicked"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
+                                            <!--================================================================-->
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </StackLayout>
+                        </Grid>
+                    </SwipeItemView>
+                </SwipeItems>
+            </SwipeView.LeftItems>
+            <Grid x:Name="SwipeContent">
+                <pv:PancakeView x:Name="pancake" Style="{StaticResource ContainerBackgroundColor3}">
+                    <pv:PancakeView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OpenSwipe"/>
+                    </pv:PancakeView.GestureRecognizers>
+                    <Grid RowDefinitions="Auto,Auto,Auto,*">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OpenSwipe"/>
+                        </Grid.GestureRecognizers>
+                        <Grid Grid.Row="0" Padding="20">
+                            <!--aki solo va el boton de menu y la foto de usuario para editarlo-->
+                            <Frame x:Name="btnmenuc" BackgroundColor="Transparent" CornerRadius="45" xct:TouchEffect.NativeAnimation="True" HorizontalOptions="Start" Padding="10">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OpenSwipe"/>
+                                </Frame.GestureRecognizers>
+                                <Image Aspect="AspectFit" HeightRequest="20" Source="menu.png">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OpenSwipe"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                            </Frame>
+                            <Frame BackgroundColor="Transparent" CornerRadius="45" xct:TouchEffect.NativeAnimation="True" 
+                                   HorizontalOptions="End" Padding="10" Margin="0,0,40,0">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Click_User"/>
+                                </Frame.GestureRecognizers>
+                                <Image Aspect="AspectFit" HeightRequest="20" Source="user.png">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Click_User"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                            </Frame>
+                            <Frame BackgroundColor="Transparent" CornerRadius="45" xct:TouchEffect.NativeAnimation="True" 
+                                   HorizontalOptions="End" Padding="10">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Click_More"/>
+                                </Frame.GestureRecognizers>
+                                <Image Aspect="AspectFit" HeightRequest="20" Source="more.png">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Click_More"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                            </Frame>
+                            <!--================================================================-->
+                        </Grid>
+                        <StackLayout Grid.Row="1">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OpenSwipe"/>
+                            </StackLayout.GestureRecognizers>
+                            <!--aki solo va el nombre del usuario-->
+                            <Label Text="Hola Amicoo,&#10;Buenos Dias" Margin="20,10" Style="{StaticResource TextColor}" x:Name="txtbienvenido"
+                                HorizontalOptions="StartAndExpand" FontSize="27" FontFamily="Madani-SemiBold">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="CloseSwipe"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <!--================================================================-->
+                        </StackLayout>
+                        <StackLayout Grid.Row="2" Padding="0,0,0,0" Orientation="Horizontal">
+                            <!--este solo es el buscador de notas-->
+                            <Frame BackgroundColor="#E8E8E8" CornerRadius="15" Padding="0,0,0,0" 
+                                   Margin="10,0" HasShadow="True" InputTransparent="False" HorizontalOptions="FillAndExpand">
+                                <SearchBar Placeholder="Buscar" HorizontalOptions="FillAndExpand" x:Name="BuscadordeNotas" PlaceholderColor="Gray"
+                                           HeightRequest="50" TextChanged="BuscadordeNotas_TextChanged"></SearchBar>
+                            </Frame>
+                            <!--================================================================-->
+                        </StackLayout>
+                        <StackLayout Grid.Row="3" Padding="0,0,0,0">
+                            <!--aki va el contenido de la lista de notas-->
+                            <!--<BoxView BackgroundColor="AntiqueWhite" 
+                                 HorizontalOptions="Fill" 
+                                 VerticalOptions="FillAndExpand">
+                            </BoxView>-->
+                            <RefreshView Refreshing="RefreshView_Refreshing" x:Name="myrefresh"
+                            Command="{Binding RefreshCommand}"
+                            IsRefreshing="{Binding IsRefreshing}"
+                            >
+                                <CollectionView x:Name="ListaNotas" SelectionMode="Single" Margin="10"  ItemsSource="{Binding noti}">
+                                    <CollectionView.ItemsLayout>
+                                        <GridItemsLayout Orientation="Vertical" Span="2" VerticalItemSpacing="10" />
+                                    </CollectionView.ItemsLayout>
+                                    <CollectionView.EmptyView>
+                                        <StackLayout
+                                            HorizontalOptions="CenterAndExpand"
+                                            VerticalOptions="CenterAndExpand">
+                                            <Label
+                                                FontAttributes="Bold"
+                                                FontSize="18"
+                                                Style="{StaticResource TextColor}"
+                                                HorizontalTextAlignment="Center"
+                                                VerticalTextAlignment="Center"
+                                                Text="No hay notas Aqui!" />
+                                        </StackLayout>
+                                    </CollectionView.EmptyView>
+
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid Padding="17" Margin="12" ColumnDefinitions="*,Auto" BackgroundColor="Transparent">
+                                                <VisualStateManager.VisualStateGroups>
+                                                    <VisualStateGroup Name="CommonStates">
+                                                        <VisualState Name="Selected">
+                                                            <VisualState.Setters>
+                                                                <Setter Property="BackgroundColor" Value="Transparent" />
+                                                            </VisualState.Setters>
+                                                        </VisualState>
+                                                    </VisualStateGroup>
+                                                </VisualStateManager.VisualStateGroups>
+                                                <Frame x:Name="frameNotita" Grid.Column="0" Grid.Row="0" Padding="0,0,0,0" BackgroundColor="#3F3F3F" CornerRadius="20" HasShadow="True" 
+                                                   xct:ShadowEffect.Color="#2A2A2A" xct:ShadowEffect.OffsetY="5" xct:ShadowEffect.Radius="10">
+                                                    <StackLayout xct:TouchEffect.NativeAnimation="True">
+                                                        <StackLayout.GestureRecognizers>
+                                                            <TapGestureRecognizer x:Name="clickanota" Tapped="ClickaNota_Tapped"/>
+                                                        </StackLayout.GestureRecognizers>
+                                                        <Grid ColumnDefinitions="*,*,Auto" RowDefinitions="*,Auto,*,Auto">
+                                                            <Label x:Name="notaId" Text="{Binding id}" IsVisible="false" Grid.Row="1"/>
+
+                                                            <Label Margin="20" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" HorizontalTextAlignment="Center" Text="{Binding titulo}" 
+                                                               FontSize="15" FontFamily="Madani-SemiBold" TextColor="WhiteSmoke" HeightRequest="30" LineBreakMode="WordWrap"/>
+                                                            <Label HorizontalTextAlignment="Center" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Text="{Binding fecha}" TextColor="WhiteSmoke"/>
+                                                            <Label Margin="10,0,10,5" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Text="{Binding contenido}" HeightRequest="60" TextColor="LightGray"/>
+                                                            <!--imagenes ilustrtivas-->
+                                                            <Image Margin="20,0,0,0"  HorizontalOptions="Start" 
+                                                               Source="image.png" Grid.Column="0" Grid.Row="3" WidthRequest="20" 
+                                                               HeightRequest="20" Aspect="AspectFit" IsVisible="{Binding ContainFoto}"/>
+                                                            <Image Margin="0,0,0,0"  HorizontalOptions="Center" 
+                                                               Source="favorite.png" Grid.Column="1" Grid.Row="3" WidthRequest="20" 
+                                                               HeightRequest="20" Aspect="AspectFit" IsVisible="{Binding ContainFavorite}"/>
+                                                            <Image Margin="0,0,20,0"  Grid.Column="2" Grid.Row="3"  HorizontalOptions="End" 
+                                                               Source="microphone_white.png"  WidthRequest="20" 
+                                                               HeightRequest="20" Aspect="AspectFit" IsVisible="{Binding ContainAudio}"/>
+                                                        </Grid>
+                                                    </StackLayout>
+                                                </Frame>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+                            </RefreshView>
+                            <!--================================================================-->
+                        </StackLayout>
+                        <!--BOTON DE AGREGAR UNA NUEVA NOTAA-->
+                        <pv:PancakeView Shadow="{pv:ShadowMarkup Color=#FF0000, Offset='10,10'}" Grid.Row="3" BackgroundColor="LightSkyBlue" CornerRadius="45" HorizontalOptions="End" WidthRequest="55" 
+                                HeightRequest="55" Margin="0,0,20,22" VerticalOptions="End" xct:TouchEffect.NativeAnimation="True"
+                                        >
+                            <pv:PancakeView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="ClickNew"/>
+                            </pv:PancakeView.GestureRecognizers>
+                            <Image Source="edit.png" Margin="15" Aspect="AspectFit" HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="ClickNew"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </pv:PancakeView>
+                    </Grid>
+                </pv:PancakeView>
+            </Grid>
+        </SwipeView>
+    </Grid>
+</ContentPage>

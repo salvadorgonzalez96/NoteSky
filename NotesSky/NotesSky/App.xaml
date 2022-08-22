@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NotesSky.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Style x:Key="Font-1" TargetType="Label">
+                <Setter Property="Label.FontFamily">
+                    <OnPlatform  x:TypeArguments="x:String">
+                        <On Platform ="Android" Value="kenyancoffeebdit#kenyan coffee"></On>
+                    </OnPlatform>
+                </Setter>
+            </Style>
+
+            <Style x:Key="Font-2" TargetType="Label">
+                <Setter Property="Label.FontFamily">
+                    <OnPlatform  x:TypeArguments="x:String">
+                        <On Platform ="Android" Value="Philosopher-Regular.ttf#philosopher"></On>
+                    </OnPlatform>
+                </Setter>
+            </Style>
+            <Color x:Key="NavigationPrimary">#1A237E</Color>
+            <Style TargetType="NavigationPage">
+                <!--<Setter Property="BarBackgroundColor" Value="#fff"/>-->
+                <!--<Setter Property="BarTextColor" Value="#203341"/>-->
+                <!--<Setter Property="BarBackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundDark3}, Light={StaticResource BackgroundLight}}" />-->
+                <!--<Setter Property="BarTextColor" Value="{AppThemeBinding Dark={StaticResource TextDark}, Light={StaticResource TextLight}}" />-->
+            </Style>
+            
+        </ResourceDictionary>
+        <!--imagenes update page-->
+        <x:String x:Key="nomSourceNight">identification2.png</x:String>
+        <x:String x:Key="genSourceNight">genero2.png</x:String>
+        <x:String x:Key="mailSourceNight">arroba2.png</x:String>
+        <x:String x:Key="passSourceNight">lock2.png</x:String>
+        <x:String x:Key="ciudadSourceNight">america2.png</x:String>
+        <x:String x:Key="teldSourceNight">iphone2.png</x:String>
+
+        <x:String x:Key="nomSourceLight">identification.png</x:String>
+        <x:String x:Key="genSourceLight">genero.png</x:String>
+        <x:String x:Key="mailSourceLight">arroba.png</x:String>
+        <x:String x:Key="passSourceLight">lock.png</x:String>
+        <x:String x:Key="ciudadSourceLight">america.png</x:String>
+        <x:String x:Key="teldSourceLight">iphone.png</x:String>
+
+
+        <!--Button Back Light-->
+        <x:String x:Key="imageButtonNight">back_light.png</x:String>
+        <!--Button Back Night-->
+        <x:String x:Key="imageButtonLight">back_black.png</x:String>
+
+        <!--Theme Light-->
+        <Color x:Key="BackgroundLight">#FFF</Color>
+        <Color x:Key="TextLight">#000</Color>
+        <!--Theme Light2-->
+        <Color x:Key="BackgroundLight2">#E7E7E7</Color>
+        <Color x:Key="TextLight2">#000</Color>
+
+        <!--ThemeDark-->
+        <Color x:Key="BackgroundDark">#120F10</Color>
+        <Color x:Key="TextDark">#FFF</Color>
+
+        <!--ThemeDark2-->
+        <Color x:Key="BackgroundDark2">#222522</Color>
+        <Color x:Key="TextDark2">#FFF</Color>
+        
+        <!--ThemeDark3-->
+        <Color x:Key="BackgroundDark3">#2E312E</Color>
+        <Color x:Key="TextDark3">#FFF</Color>
+
+        <!--Button attach Light-->
+        <x:String x:Key="attachButtonNight">attach.png</x:String>
+        <!--Button attach Night-->
+        <x:String x:Key="attachButtonLight">attach2.png</x:String>
+
+        <!--Button attach Light-->
+        <x:String x:Key="imagNight">grid2.png</x:String>
+        <!--Button attach Night-->
+        <x:String x:Key="imagLight">grid.png</x:String>
+
+        <!--Styles-->
+        <Style x:Key="ContainerBackgroundColorFrame" 
+                TargetType="Frame">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundDark2}, Light={StaticResource BackgroundLight2}}"/>
+        </Style>
+        
+        <Style x:Key="ContainerBackgroundColor" 
+                TargetType="StackLayout">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundDark}, Light={StaticResource BackgroundLight}}"/>
+        </Style>
+        <Style x:Key="ContainerBackgroundColor2" 
+                    TargetType="StackLayout">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundDark2}, Light={StaticResource BackgroundLight2}}"/>
+        </Style>
+        <Style x:Key="ContainerBackgroundColor3" TargetType="StackLayout">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundDark3}, Light={StaticResource BackgroundLight}}"/>
+        </Style>
+        <Style x:Key="ContainerBackgroundColor4" TargetType="NavigationPage">
+            <!--<Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundDark3}, Light={StaticResource BackgroundLight}}"/>-->
+            <Setter Property="BarBackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundDark3}, Light={StaticResource BackgroundLight}}"/>
+        </Style>
+
+        <!--colores de labels-->
+        <Style x:Key="TextColor"
+                TargetType="Label">
+            <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource TextDark}, Light={StaticResource TextLight}}"/>
+        </Style>
+        <!--colores de labels-->
+        <Style x:Key="Editors"
+                TargetType="Editor">
+            <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource TextDark}, Light={StaticResource TextLight}}"/>
+        </Style>
+        <Style x:Key="TextColor2"
+                            TargetType="Label">
+            <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource TextDark2}, Light={StaticResource TextLight2}}"/>
+        </Style>
+
+        <!--colores de Button-->
+        <Style x:Key="TextColorB"
+                TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource TextDark}, Light={StaticResource TextLight}}"/>
+        </Style>
+        <Style x:Key="TextColor2B"
+                        TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundDark2}, Light={StaticResource BackgroundLight2}}"/>
+        </Style>
+        <!--colores de Button-->
+        <Style x:Key="ImagenSourrce" TargetType="Image">
+            <Setter Property="Source" Value="{AppThemeBinding Dark={StaticResource imageButtonNight}, Light={StaticResource imageButtonLight}}"/>
+        </Style>
+        <!--colores backgroud editar-->
+        <Style x:Key="backgroundEditar" TargetType="ContentPage">
+            <Setter Property="BackgroundImage" Value="{AppThemeBinding Dark={StaticResource imagNight}, Light={StaticResource imagLight}}"/>
+        </Style>
+        <!--colores de placeholder entry-->
+        <Style x:Key="Placeholderentry"
+                            TargetType="Entry">
+            <Setter Property="PlaceholderColor" Value="{AppThemeBinding Dark={StaticResource TextDark}, Light={StaticResource TextLight}}"/>
+            <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource TextDark}, Light={StaticResource TextLight}}"/>
+        </Style>
+        
+
+        <!--actualiza iconos-->
+        <Style x:Key="nomSource" TargetType="Image">
+            <Setter Property="Source" Value="{AppThemeBinding Dark={StaticResource nomSourceNight}, Light={StaticResource nomSourceLight}}"/>
+        </Style>
+        <Style x:Key="genSource" TargetType="Image">
+            <Setter Property="Source" Value="{AppThemeBinding Dark={StaticResource genSourceNight}, Light={StaticResource genSourceLight}}"/>
+        </Style>
+        <Style x:Key="mainSource" TargetType="Image">
+            <Setter Property="Source" Value="{AppThemeBinding Dark={StaticResource mailSourceNight}, Light={StaticResource mailSourceLight}}"/>
+        </Style>
+        <Style x:Key="passSource" TargetType="Image">
+            <Setter Property="Source" Value="{AppThemeBinding Dark={StaticResource passSourceNight}, Light={StaticResource passSourceLight}}"/>
+        </Style>
+        <Style x:Key="ciudadSource" TargetType="Image">
+            <Setter Property="Source" Value="{AppThemeBinding Dark={StaticResource ciudadSourceNight}, Light={StaticResource ciudadSourceLight}}"/>
+        </Style>
+        <Style x:Key="teldSource" TargetType="Image">
+            <Setter Property="Source" Value="{AppThemeBinding Dark={StaticResource teldSourceNight}, Light={StaticResource teldSourceLight}}"/>
+        </Style>
+    </Application.Resources>
+</Application>

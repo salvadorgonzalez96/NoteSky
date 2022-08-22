@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NotesSky.Views.PantallaLogin"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             Title="Login"
+             BackgroundColor="white">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="10">
+                <Image Source="logo.png" HorizontalOptions="Center" WidthRequest="250" HeightRequest="250" Aspect="AspectFit"/>
+                <Label Text="¡Hazlo con NoteSky!"  TextColor="Black" FontSize="19" FontFamily="Madani-SemiBold" Margin="10" HorizontalOptions="Center"/>
+                <Label Text="Inicio de Sesion" TextColor="Black" HorizontalOptions="Start" FontSize="30" Margin="10" FontFamily="Madani-SemiBold" FontAttributes="Bold"></Label>
+
+                <StackLayout Orientation="Horizontal" Margin="10">
+                    <Image Source="arroba.png" Aspect="AspectFit" WidthRequest="30" HorizontalOptions="Start"/>
+                    <Entry x:Name="txtCorreo" HorizontalOptions="FillAndExpand" TextColor="black"
+                           BackgroundColor="Transparent" FontSize="Medium" Placeholder="Correo Electronico" IsPassword="False" 
+                           PlaceholderColor="Gray" Keyboard="Email" MaxLength="150"></Entry>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="10">
+                    <Image Source="lock.png" Aspect="AspectFit" WidthRequest="30" HorizontalOptions="Start"/>
+                    <Entry x:Name="txtContra" TextColor="black" BackgroundColor="Transparent" FontSize="Medium" 
+                           Placeholder="Ingrese su contraseña" PlaceholderColor="Gray" Keyboard="Text" IsPassword="True" 
+                           MaxLength="150" HorizontalOptions="FillAndExpand" ></Entry>
+                    <Image x:Name="imgeye" Source="closeeye.png" Aspect="AspectFit" xct:TouchEffect.NativeAnimation="True" WidthRequest="25" HeightRequest="25" >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="clickOjo" Tapped="clickOjo_Tapped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <!--<CheckBox x:Name="mostrar" Color="#0070CB" IsChecked="False" CheckedChanged="mostrar_CheckedChanged"></CheckBox>-->
+                </StackLayout>
+                <Button x:Name="btnclave" Text="Olvidastes la contraseña" TextColor="DarkRed" FontAttributes="Bold" 
+                        FontFamily="Madani-SemiBold" HorizontalOptions="End" 
+                        BackgroundColor="Transparent" FontSize="16" BorderColor="Transparent" Clicked="btnclave_Clicked"></Button>
+                <Frame Margin="15" CornerRadius="15" Padding="5" BackgroundColor="#1C2DF2" HasShadow="True" xct:TouchEffect.NativeAnimation="True">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="btnInicia_Clicked"/>
+                    </Frame.GestureRecognizers>
+                    <Button x:Name="btnIniciar" Text="Iniciar Sesion" TextColor="White" BackgroundColor="Transparent"
+                            FontFamily="Madani-SemiBold" FontSize="18" HorizontalOptions="Center" Clicked="btnIniciar_Clicked"></Button>
+                </Frame>
+                <Grid ColumnDefinitions="Auto,Auto,Auto" HorizontalOptions="CenterAndExpand" >
+                    <Line Stroke="Gray" Grid.Column="0" X2="100" Margin="15"/>
+                    <Label Text="O" HorizontalOptions="Center" FontSize="19" FontFamily="Madani-SemiBold" VerticalOptions="Center"  TextColor="Black" Grid.Column="1"/>
+                    <Line Stroke="Gray" Grid.Column="2" X2="100" Margin="15"/>
+                </Grid>
+                <Frame Margin="15" CornerRadius="15" Padding="5" BackgroundColor="#BEBEBE" HasShadow="True" xct:TouchEffect.NativeAnimation="True">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="btnCrea_Clicked"/>
+                    </Frame.GestureRecognizers>
+                    <Button x:Name="btnCrear" Text="Crear Cuenta" TextColor="#5F5F5F" BackgroundColor="Transparent"
+                            FontFamily="Madani-SemiBold" FontSize="18" HorizontalOptions="Center" Clicked="btnCrear_Clicked"></Button>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

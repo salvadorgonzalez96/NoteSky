@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="NotesSky.Views.PantallasCambiocontra.Codigocontra"
+             Title="Codigo para cambiar password"
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout Margin="0,200,0,0">
+            <!--''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''-->
+            <!--AKI SE INGRESA ENVIA O REENVIA EL CODIGO ENVIADO AL CORREO PARA CAMBIAR LA CLAVE-->
+            <!--''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''-->
+            <Image Source="pin.png" Aspect="AspectFit" HeightRequest="200" HorizontalOptions="Center"/>
+            
+            <Label x:Name="lblcorreo" Text="Ingrese el codigo enviado al correo" TextColor="Black" FontFamily="Madani-SemiBold"
+                   FontSize="21" HorizontalOptions="Center" ></Label>
+            
+            <!--CORREO QUE VIENE DESDE EL LOGIN-->
+            <StackLayout Orientation="Horizontal" Margin="10" HorizontalOptions="Center">
+                <Image Source="arroba.png" Aspect="AspectFit" WidthRequest="30" HorizontalOptions="Start"/>
+                <Entry x:Name="txtCorreo" TextColor="black" WidthRequest="250" HorizontalTextAlignment="Center"
+                       BackgroundColor="Transparent" FontSize="Medium" Placeholder="Correo Electronico" TextChanged="txtCorreo_TextChanged"
+                       PlaceholderColor="black" Keyboard="Email" MaxLength="150"></Entry>
+            </StackLayout>
+            
+            <!--ENVIAR CODIGO DE CAMBIO DE CLAVE-->
+            <Frame Margin="60,0,60,0" CornerRadius="15" Padding="5" BackgroundColor="Blue" HasShadow="True" 
+                   xct:TouchEffect.NativeAnimation="True" x:Name="Frame1">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="btnenviarCodCambioPass" Tapped="btnenviarCodCambioPass_Tapped"/>
+                </Frame.GestureRecognizers>
+                <Button x:Name="btnVolverEnviar" Text="Enviar Codigo" TextColor="White" BackgroundColor="Transparent"
+                        FontFamily="Madani-SemiBold" FontSize="18" HorizontalOptions="Center"></Button>
+            </Frame>
+
+            <!--INGRESO CLAVE DE CAMBIO DE CONTRASEÑA-->
+            <StackLayout Orientation="Horizontal" Margin="10" HorizontalOptions="Center">
+                <Image Source="lock.png" Aspect="AspectFit" WidthRequest="30" HorizontalOptions="Start"/>
+                <Entry x:Name="txtcodigo" TextColor="black" BackgroundColor="Transparent" FontSize="Medium" 
+                       Placeholder="Ingrese clave" PlaceholderColor="Gray" Keyboard="Numeric"
+                       MaxLength="6" WidthRequest="200" HorizontalTextAlignment="Center"></Entry>
+            </StackLayout>
+
+            <!--BOTON DE CONFIRMAR CLAVE DE CAMBIO DE CONTRASEÑA-->
+            <Frame Margin="60,0,60,0" CornerRadius="15" Padding="5" BackgroundColor="DarkGreen" HasShadow="True" 
+                   xct:TouchEffect.NativeAnimation="True" x:Name="Frame2">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="btnClaveCambioPass" Tapped="btnClaveCambioPass_Tapped"/>
+                </Frame.GestureRecognizers>
+                <Button x:Name="btncambiarclave" Text="Verificar" TextColor="White" BackgroundColor="Transparent"
+                        FontFamily="Madani-SemiBold" FontSize="18" HorizontalOptions="Center"></Button>
+            </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage  xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                  xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  BackgroundClicked="PopupPage_BackgroundClicked"
+                  CloseWhenBackgroundIsClicked="False"
+             x:Class="NotesSky.Views.MyPopupPage">
+    <StackLayout WidthRequest="200" HeightRequest="200" 
+                 HorizontalOptions="End" VerticalOptions="Start" >
+        <Frame CornerRadius="20" HasShadow="True">
+            <StackLayout>
+                <!--<Button x:Name="Closebtn" Text="Close" Clicked="Closebtn_Clicked"></Button>-->
+                <Picker x:Name="orderBy" Title="Ordenar Asc Por" TitleColor="Black" HorizontalTextAlignment="Center" SelectedIndexChanged="orderBy_SelectedIndexChanged" >
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Fecha</x:String>
+                            <x:String>Titulo</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <Button x:Name="btnActualiza" Text="Actualizar Listado" Clicked="btnActualiza_Clicked"></Button>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</pages:PopupPage>
